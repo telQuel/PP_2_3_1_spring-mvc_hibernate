@@ -13,7 +13,7 @@
 <br>
 <br>
 <br>
-<form th:action="@{/save-user}" th:object="${user}" method="post">
+<form th:action="@{/user/save}" th:object="${user}" method="post">
     <div>
         <label for="name">User name</label>
         <input type="text" th:field="*{name}" id="name" th:value="${user.name}">

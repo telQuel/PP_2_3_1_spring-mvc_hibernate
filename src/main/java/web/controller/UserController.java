@@ -8,6 +8,7 @@ import web.model.User;
 import web.service.UserService;
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
@@ -17,12 +18,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/12")
     public String getIndex() {
         return "index";
     }
 
-    @GetMapping(value = "/users")
+    @GetMapping(value = "/")
     public String getUsers(Model model) {
         model.addAttribute("users", userService.getAllUsers());
         return "users";
@@ -34,23 +35,23 @@ public class UserController {
         return "new_user";
     }
 
-    @GetMapping(value = "/update-user/{id}")
+    @GetMapping(value = "/update/{id}")
     public String updateUser(@PathVariable("id") int id, Model model) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
         return "new_user";
     }
 
-    @PostMapping(value = "/save-user")
+    @PostMapping(value = "/save")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
-        return "redirect:/users";
+        return "redirect:/user/";
     }
 
-    @PostMapping(value = "/delete-user/{id}")
+    @PostMapping(value = "/delete/{id}")
     public String deleteUser(@PathVariable("id") int id) {
         userService.deleteUserById(id);
-        return "redirect:/users";
+        return "redirect:/user/";
     }
 
 }

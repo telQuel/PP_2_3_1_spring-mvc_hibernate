@@ -24,7 +24,7 @@
             <td th:utext="${user.lastName}"></td>
 
             <td>
-                <form th:action="@{/update-user/{id}(id=${user.id})}" th:object="${user}" method="get">
+                <form th:action="@{/user/update/{id}(id=${user.id})}" th:object="${user}" method="get">
                     <div>
                         <button type="submit">Update</button>
                     </div>
@@ -32,7 +32,7 @@
             </td>
 
             <td>
-                <form th:action="@{/delete-user/{id}(id=${user.id})}" th:object="${user}" method="post">
+                <form th:action="@{/user/delete/{id}(id=${user.id})}" th:object="${user}" method="post">
                     <div>
                         <button type="submit">Delete</button>
                     </div>
@@ -45,7 +45,7 @@
 </div>
  <br>
 
- <form th:action="@{/add}" method="get">
+ <form th:action="@{/user/add}" method="get">
      <div>
          <button type="submit">Create</button>
      </div>
